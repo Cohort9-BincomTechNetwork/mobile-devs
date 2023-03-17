@@ -1,5 +1,5 @@
-import 'package:examina/features/auth/data/login.dart';
-import 'package:examina/features/auth/data/register.dart';
+import 'package:examina/features/auth/screens/login.dart';
+import 'package:examina/features/auth/screens/register.dart';
 import 'package:examina/features/splash/screens/splash_screen.dart';
 import 'package:examina/features/splash/screens/splash_screen2.dart';
 import 'package:get/get.dart';
