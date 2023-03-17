@@ -13,7 +13,7 @@ class SplashScreen2 extends StatelessWidget {
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         width: double.infinity,
         color: AppColors.whiteColor,
         child: Column(
@@ -51,7 +51,7 @@ class SplashScreen2 extends StatelessWidget {
             SizedBox(
               height: Dimension.height10 / 2,
             ),
-            Text(
+            const Text(
               'Learn new things and develop your problem solving skills',
               textAlign: TextAlign.left,
               softWrap: true,
@@ -67,7 +67,7 @@ class SplashScreen2 extends StatelessWidget {
                     width: 5,
                     color: AppColors.primaryColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Container(
@@ -86,10 +86,13 @@ class SplashScreen2 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SplashButton(
-                  color: AppColors.primaryColor,
-                  text: 'Next',
-                  textColor: AppColors.whiteColor,
+                GestureDetector(
+                  onTap: () => Get.toNamed(RouteHelper.login),
+                  child: SplashButton(
+                    color: AppColors.primaryColor,
+                    text: 'Next',
+                    textColor: AppColors.whiteColor,
+                  ),
                 ),
                 SplashButton(
                   color: AppColors.whiteColor,

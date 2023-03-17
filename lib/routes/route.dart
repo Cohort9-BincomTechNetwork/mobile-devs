@@ -1,3 +1,5 @@
+import 'package:examina/features/auth/data/login.dart';
+import 'package:examina/features/auth/data/register.dart';
 import 'package:examina/features/splash/screens/splash_screen.dart';
 import 'package:examina/features/splash/screens/splash_screen2.dart';
 import 'package:get/get.dart';
@@ -6,6 +8,8 @@ class RouteHelper {
   static const initial = '/';
   static const splashScreen = '/splash-screen';
   static const splashScreen2 = '/splash-screen-2';
+  static const login = '/auth/login';
+  static const register = '/auth/register';
 
   static String getSplashScreen() => '$splashScreen';
   static String getSplashScreen2() => '$splashScreen2';
@@ -14,14 +18,24 @@ class RouteHelper {
     GetPage(
         name: splashScreen,
         page: () {
-          return SplashScreen();
+          return const SplashScreen();
         },
         transition: Transition.fadeIn),
     GetPage(
         name: splashScreen2,
         page: () {
-          return SplashScreen2();
+          return const SplashScreen2();
         },
         transition: Transition.downToUp),
+    GetPage(
+        name: login,
+        page: () {
+          return const LoginPage();
+        }),
+    GetPage(
+        name: register,
+        page: () {
+          return const SignUpPage();
+        }),
   ];
 }
