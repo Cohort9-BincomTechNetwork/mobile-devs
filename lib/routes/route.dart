@@ -1,3 +1,4 @@
+import 'package:examina/features/auth/screens/forgot_password_screen.dart';
 import 'package:examina/features/auth/screens/login.dart';
 import 'package:examina/features/auth/screens/register.dart';
 import 'package:examina/features/auth/screens/register.dart';
@@ -9,11 +10,14 @@ class RouteHelper {
   static const initial = '/';
   static const splashScreen = '/splash-screen';
   static const splashScreen2 = '/splash-screen-2';
+
   static const login = '/auth/login';
   static const register = '/auth/register';
+  static const forgotPasswordScreen = '/forgot-password';
 
   static String getSplashScreen() => '$splashScreen';
   static String getSplashScreen2() => '$splashScreen2';
+  static String getForgotPasswordScreen() => '$forgotPasswordScreen';
 
   static List<GetPage> routes = [
     GetPage(
@@ -38,5 +42,11 @@ class RouteHelper {
         page: () {
           return const SignUpPage();
         }),
+    GetPage(
+        name: forgotPasswordScreen,
+        page: () {
+          return const ForgotPasswordScreen();
+        },
+        transition: Transition.rightToLeft),
   ];
 }
