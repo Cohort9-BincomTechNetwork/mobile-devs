@@ -1,3 +1,4 @@
+import 'package:examina/common/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class MakeInput extends StatelessWidget {
@@ -6,29 +7,25 @@ class MakeInput extends StatelessWidget {
   bool obscureText;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextField(
-          obscureText: obscureText,
-          decoration: InputDecoration(
-            suffixIcon: Icon(Icons.cancel_rounded),
-            hintText: label,
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                  // color: Colors.grey[400],
-                  ),
+    return Container(
+      child: TextField(
+        obscureText: obscureText,
+        decoration: InputDecoration(
+          //contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          suffixIcon: Icon(Icons.cancel),
+          hintText: label,
+          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+              color: AppColors.primaryColor,
             ),
-            border: OutlineInputBorder(
-                // borderSide: BorderSide(color: Colors.grey[400])
-                ),
           ),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.primaryColor)),
         ),
-        const SizedBox(
-          height: 30,
-        )
-      ],
+      ),
     );
   }
 }

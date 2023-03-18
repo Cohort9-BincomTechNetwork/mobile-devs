@@ -4,6 +4,7 @@ import 'package:examina/features/auth/screens/login.dart';
 import 'package:examina/features/auth/screens/new_password_screen.dart';
 import 'package:examina/features/auth/screens/register.dart';
 import 'package:examina/features/auth/screens/register.dart';
+import 'package:examina/features/auth/screens/reset_password_success_screen.dart';
 import 'package:examina/features/splash/screens/splash_screen.dart';
 import 'package:examina/features/splash/screens/splash_screen2.dart';
 import 'package:get/get.dart';
@@ -18,12 +19,15 @@ class RouteHelper {
   static const forgotPasswordScreen = '/forgot-password';
   static const checkEmailScreen = '/check-email-screen';
   static const newPasswordScreen = '/new-password-screen';
+  static const passwordResetSuccessScreen = '/password-reset-success-screen';
 
   static String getSplashScreen() => '$splashScreen';
   static String getSplashScreen2() => '$splashScreen2';
   static String getForgotPasswordScreen() => '$forgotPasswordScreen';
   static String getCheckEmailScreen() => '$checkEmailScreen';
   static String getNewPasswordScreen() => '$newPasswordScreen';
+  static String getPasswordResetSuccessScreen() =>
+      '$passwordResetSuccessScreen';
 
   static List<GetPage> routes = [
     GetPage(
@@ -64,6 +68,12 @@ class RouteHelper {
         name: newPasswordScreen,
         page: () {
           return const NewPasswordScreen();
+        },
+        transition: Transition.rightToLeft),
+    GetPage(
+        name: passwordResetSuccessScreen,
+        page: () {
+          return const ResetPasswordSuccessScreen();
         },
         transition: Transition.rightToLeft),
   ];
