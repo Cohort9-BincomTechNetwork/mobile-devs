@@ -30,7 +30,7 @@ class CheckEmailScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.all(10),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               BookStoreImage(),
               SizedBox(
@@ -71,7 +71,7 @@ class CheckEmailScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: Dimension.height20 * 3,
               ),
               // BUTTON
               GestureDetector(

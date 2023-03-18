@@ -28,7 +28,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.all(10),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               BookStoreImage(),
               SizedBox(
@@ -53,7 +53,9 @@ class ForgotPasswordScreen extends StatelessWidget {
               Container(
                   padding: EdgeInsets.all(20),
                   child: MakeInput(label: "example@gmail.com")),
-
+              SizedBox(
+                height: Dimension.height20 * 3,
+              ),
               // BUTTON
 
               GestureDetector(

@@ -3,6 +3,7 @@ import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/book_store_image.dart';
 import 'package:examina/features/auth/widgets/make_input_widget.dart';
 import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
+import 'package:examina/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +30,7 @@ class NewPasswordScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.all(10),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               BookStoreImage(),
               SizedBox(
@@ -49,11 +50,15 @@ class NewPasswordScreen extends StatelessWidget {
                   // padding: EdgeInsets.all(10),
                   child: MakeInput(label: "example@gmail.com")),
               SizedBox(
-                height: 20,
+                height: Dimension.height100,
               ),
               // BUTTON
-              TextBTN(
-                text: "Reset Password",
+              GestureDetector(
+                onTap: () =>
+                    Get.toNamed(RouteHelper.getPasswordResetSuccessScreen()),
+                child: TextBTN(
+                  text: "Reset Password",
+                ),
               ),
             ],
           ),
