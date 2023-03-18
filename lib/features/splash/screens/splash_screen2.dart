@@ -1,9 +1,11 @@
 import 'package:examina/common/utils/colors.dart';
 import 'package:examina/common/utils/dimensions.dart';
+import 'package:examina/common/widgets/book_store_image.dart';
 import 'package:examina/features/splash/widgets/splash_button.dart';
 import 'package:examina/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen2 extends StatelessWidget {
   const SplashScreen2({super.key});
@@ -27,12 +29,7 @@ class SplashScreen2 extends StatelessWidget {
             //     icon: Icon(Icons.arrow_back_ios_new_outlined)),
             SizedBox(height: Dimension.height20 * 5),
             // image
-            Image.asset(
-              'assets/images/splash_image.png',
-              height: Dimension.height150,
-              width: Dimension.width20 * 20,
-              fit: BoxFit.cover,
-            ),
+            BookStoreImage(),
             SizedBox(
               height: Dimension.height30,
             ),
@@ -51,15 +48,16 @@ class SplashScreen2 extends StatelessWidget {
             SizedBox(
               height: Dimension.height10 / 2,
             ),
-            const Text(
+            Text(
               'Learn new things and develop your problem solving skills',
               textAlign: TextAlign.left,
               softWrap: true,
-              style: TextStyle(fontSize: 18, color: Colors.black87),
+              style: GoogleFonts.poppins(
+                  fontSize: 18, fontWeight: FontWeight.w300),
             ),
 
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
               child: Row(
                 children: [
                   Container(
@@ -79,26 +77,22 @@ class SplashScreen2 extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: Dimension.height10 * 10),
+            SizedBox(height: Dimension.height10 * 15),
 
             // button
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () => Get.toNamed(RouteHelper.login),
+                  onTap: () =>
+                      Get.toNamed(RouteHelper.getForgotPasswordScreen()),
                   child: SplashButton(
                     color: AppColors.primaryColor,
                     text: 'Next',
                     textColor: AppColors.whiteColor,
                   ),
                 ),
-                SplashButton(
-                  color: AppColors.whiteColor,
-                  text: 'Skip',
-                  textColor: Colors.black,
-                )
               ],
             )
           ],
