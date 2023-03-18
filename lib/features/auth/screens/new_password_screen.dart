@@ -3,13 +3,14 @@ import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/book_store_image.dart';
 import 'package:examina/features/auth/widgets/make_input_widget.dart';
 import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
-import 'package:examina/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+import '../widgets/text_button.dart';
+
+class NewPasswordScreen extends StatelessWidget {
+  const NewPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,32 +36,25 @@ class ForgotPasswordScreen extends StatelessWidget {
                 height: Dimension.height20,
               ),
               Text(
-                "Forgot Password?",
+                "Reset your password",
                 style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor),
               ),
-
-              Text(
-                "Don't worry, it happens to the best of us",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(),
-              ),
               SizedBox(
-                height: Dimension.height20 * 3,
+                height: Dimension.height20,
               ),
               Container(
-                  padding: EdgeInsets.all(20),
+                  // padding: EdgeInsets.all(10),
                   child: MakeInput(label: "example@gmail.com")),
-
+              SizedBox(
+                height: 20,
+              ),
               // BUTTON
-
-              GestureDetector(
-                  onTap: () => Get.toNamed(RouteHelper.checkEmailScreen),
-                  child: TextAndIconBTN(
-                    text: "Continue",
-                  )),
+              TextBTN(
+                text: "Reset Password",
+              ),
             ],
           ),
         ),
