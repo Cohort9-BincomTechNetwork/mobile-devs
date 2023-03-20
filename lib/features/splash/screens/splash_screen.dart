@@ -3,6 +3,7 @@ import 'package:examina/features/splash/widgets/splash_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:examina/routes/route.dart';
+import 'package:examina/common/utils/dimensions.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class SplashScreen extends StatelessWidget {
             // logo
             Expanded(child: Container()),
             Container(
-              height: 100,
+              height: Dimension.height100,
               width: 250,
               decoration: BoxDecoration(
                 image: DecorationImage(
