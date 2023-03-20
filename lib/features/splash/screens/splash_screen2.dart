@@ -38,7 +38,7 @@ class SplashScreen2 extends StatelessWidget {
 
             Text(
               'Empower your education to the next level',
-              textAlign: TextAlign.justify,
+              textAlign: TextAlign.left,
               softWrap: true,
               style: TextStyle(
                   fontSize: Dimension.font26,
@@ -77,7 +77,7 @@ class SplashScreen2 extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: Dimension.height10 * 15),
+            SizedBox(height: Dimension.height10 * 10),
 
             // button
             Row(
@@ -85,8 +85,7 @@ class SplashScreen2 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () =>
-                      Get.toNamed(RouteHelper.getForgotPasswordScreen()),
+                  onTap: () => Get.toNamed(RouteHelper.login),
                   child: SplashButton(
                     color: AppColors.primaryColor,
                     text: 'Next',

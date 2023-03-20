@@ -23,7 +23,7 @@ class SplashScreen extends StatelessWidget {
             Expanded(child: Container()),
             Container(
               height: Dimension.height100,
-              width: 250,
+              width: Dimension.width250 + 50,
               decoration: BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
