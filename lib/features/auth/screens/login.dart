@@ -36,38 +36,36 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Container(
-                        height: 200,
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.all(20),
-                        // padding: const EdgeInsets.only(top: 3, left: 3),
-                        child: ElevatedButton.icon(
-                          onPressed: () {
-                            print("You pressed Icon Elevated Button");
-                          },
-                          icon:
-                              Icon(Icons.save), //icon data for elevated button
-                          label: Text("Elevated Button with Icon"), //label text
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
+                        padding: const EdgeInsets.only(top: 3, left: 3),
+                        child: MaterialButton(
+                          minWidth: double.infinity,
+                          height: 60,
+                          onPressed: () {},
+                          color: AppColors.primaryColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)),
+                          child: const Text(
+                            "Log In with Facebook",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                                color: Colors.white),
                           ),
                         ),
-                        // MaterialButton(
-                        //   minWidth: double.infinity,
-                        //   height: 60,
-                        //   onPressed: () {},
-                        //   color: Colors.blue,
-                        //   shape: RoundedRectangleBorder(
-                        //       borderRadius: BorderRadius.circular(5)),
-                        //   child: const Text(
-                        //     "Log In with Google",
-                        //     style: TextStyle(
-                        //         fontWeight: FontWeight.w600,
-                        //         fontSize: 16,
-                        //         color: Colors.white),
-                        //   ),
-                        // ),
                       ),
                     ),
+
+                    // ElevatedButton.icon(
+                    //   onPressed: () {
+                    //     print("You pressed Icon Elevated Button");
+                    //   },
+                    //   icon:
+                    //       Icon(Icons.save), //icon data for elevated button
+                    //   label: Text("Elevated Button with Icon"), //label text
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.blue,
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -181,7 +179,7 @@ Widget makeInput({label, text_icon, obsureText = false}) {
               color: Colors.blue,
             ),
           ),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               // borderSide: BorderSide(color: Colors.grey[400])
               ),
         ),
