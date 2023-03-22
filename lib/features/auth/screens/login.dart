@@ -1,3 +1,4 @@
+import 'package:examina/common/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -35,24 +36,36 @@ class LoginPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Container(
-                        padding: const EdgeInsets.only(top: 3, left: 3),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 60,
-                          onPressed: () {},
-                          color: Colors.blue,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-
-                          // child: const Icon(),
-                          child: const Text(
-                            "Log In with Google",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Colors.white70),
+                        height: 200,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(20),
+                        // padding: const EdgeInsets.only(top: 3, left: 3),
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            print("You pressed Icon Elevated Button");
+                          },
+                          icon:
+                              Icon(Icons.save), //icon data for elevated button
+                          label: Text("Elevated Button with Icon"), //label text
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.blue,
                           ),
                         ),
+                        // MaterialButton(
+                        //   minWidth: double.infinity,
+                        //   height: 60,
+                        //   onPressed: () {},
+                        //   color: Colors.blue,
+                        //   shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(5)),
+                        //   child: const Text(
+                        //     "Log In with Google",
+                        //     style: TextStyle(
+                        //         fontWeight: FontWeight.w600,
+                        //         fontSize: 16,
+                        //         color: Colors.white),
+                        //   ),
+                        // ),
                       ),
                     ),
                     const SizedBox(
@@ -66,15 +79,15 @@ class LoginPage extends StatelessWidget {
                           minWidth: double.infinity,
                           height: 60,
                           onPressed: () {},
-                          color: Colors.blue,
+                          color: AppColors.primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           child: const Text(
                             "Log In with Facebook",
                             style: TextStyle(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w500,
                                 fontSize: 16,
-                                color: Colors.white70),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -92,8 +105,12 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
-                      makeInput(label: "Email"),
-                      makeInput(label: "Password", obsureText: true),
+                      makeInput(
+                          label: "Email", text_icon: Icons.person_2_outlined),
+                      makeInput(
+                          label: "Password",
+                          text_icon: Icons.lock,
+                          obsureText: true),
                     ],
                   ),
                 ),
@@ -105,7 +122,7 @@ class LoginPage extends StatelessWidget {
                       minWidth: double.infinity,
                       height: 60,
                       onPressed: () {},
-                      color: Colors.indigoAccent[400],
+                      color: AppColors.primaryColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                       child: const Text(
@@ -113,7 +130,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            color: Colors.white70),
+                            color: Colors.white),
                       ),
                     ),
                   ),
@@ -141,7 +158,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-Widget makeInput({label, obsureText = false}) {
+Widget makeInput({label, text_icon, obsureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -155,9 +172,11 @@ Widget makeInput({label, obsureText = false}) {
       ),
       TextField(
         obscureText: obsureText,
-        decoration: const InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
+        decoration: InputDecoration(
+          prefixIcon: Icon(text_icon),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,
             ),

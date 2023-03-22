@@ -53,11 +53,15 @@ class SignUpPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: [
-                          makeInput(label: "Name"),
-                          makeInput(label: "Email"),
-                          makeInput(label: "Educational Status"),
-                          makeInput(label: "Password", obsureText: true),
-                          makeInput(label: "Confirm Pasword", obsureText: true)
+                          makeInput(label: "Email", text_icon: Icons.email),
+                          makeInput(
+                              label: "Password",
+                              text_icon: Icons.lock,
+                              obsureText: true),
+                          makeInput(
+                              label: "Confirm Password",
+                              text_icon: Icons.lock,
+                              obsureText: true)
                         ],
                       ),
                     ),
@@ -108,7 +112,7 @@ class SignUpPage extends StatelessWidget {
   }
 }
 
-Widget makeInput({label, obsureText = false}) {
+Widget makeInput({label, text_icon, obsureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -122,14 +126,16 @@ Widget makeInput({label, obsureText = false}) {
       ),
       TextField(
         obscureText: obsureText,
-        decoration: const InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
+        decoration: InputDecoration(
+          prefixIcon: Icon(text_icon),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,
             ),
           ),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               // borderSide: BorderSide(color: Colors.grey[400])
               ),
         ),
