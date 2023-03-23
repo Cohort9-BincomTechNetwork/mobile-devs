@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:examina/routes/route.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'helper/dependencies.dart' as dep;
 
-void main() {
+void main() async {
   GoogleFonts.config.allowRuntimeFetching = false;
+  WidgetsFlutterBinding.ensureInitialized();
+  await dep.init();
   runApp(const MyApp());
 }
 
