@@ -1,4 +1,6 @@
+import 'package:examina/common/utils/colors.dart';
 import 'package:examina/routes/route.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,21 +44,31 @@ class LoginPage extends StatelessWidget {
                           minWidth: double.infinity,
                           height: 60,
                           onPressed: () {},
-                          color: Colors.blue,
+                          color: AppColors.primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
-
-                          // child: const Icon(),
                           child: const Text(
-                            "Log In with Google",
+                            "Log In with Facebook",
                             style: TextStyle(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w500,
                                 fontSize: 16,
-                                color: Colors.white70),
+                                color: Colors.white),
                           ),
                         ),
                       ),
                     ),
+
+                    // ElevatedButton.icon(
+                    //   onPressed: () {
+                    //     print("You pressed Icon Elevated Button");
+                    //   },
+                    //   icon:
+                    //       Icon(Icons.save), //icon data for elevated button
+                    //   label: Text("Elevated Button with Icon"), //label text
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.blue,
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 20,
                     ),
@@ -68,15 +80,15 @@ class LoginPage extends StatelessWidget {
                           minWidth: double.infinity,
                           height: 60,
                           onPressed: () {},
-                          color: Colors.blue,
+                          color: AppColors.primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           child: const Text(
                             "Log In with Facebook",
                             style: TextStyle(
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w500,
                                 fontSize: 16,
-                                color: Colors.white70),
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -94,8 +106,12 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
-                      makeInput(label: "Email"),
-                      makeInput(label: "Password", obsureText: true),
+                      makeInput(
+                          label: "Email", text_icon: Icons.person_2_outlined),
+                      makeInput(
+                          label: "Password",
+                          text_icon: Icons.lock,
+                          obsureText: true),
                     ],
                   ),
                 ),
@@ -107,7 +123,7 @@ class LoginPage extends StatelessWidget {
                       minWidth: double.infinity,
                       height: 60,
                       onPressed: () {},
-                      color: Colors.indigoAccent[400],
+                      color: AppColors.primaryColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                       child: const Text(
@@ -115,7 +131,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            color: Colors.white70),
+                            color: Colors.white),
                       ),
                     ),
                   ),
@@ -146,7 +162,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-Widget makeInput({label, obsureText = false}) {
+Widget makeInput({label, text_icon, obsureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -160,14 +176,16 @@ Widget makeInput({label, obsureText = false}) {
       ),
       TextField(
         obscureText: obsureText,
-        decoration: const InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
+        decoration: InputDecoration(
+          prefixIcon: Icon(text_icon),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.blue,
             ),
           ),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               // borderSide: BorderSide(color: Colors.grey[400])
               ),
         ),
