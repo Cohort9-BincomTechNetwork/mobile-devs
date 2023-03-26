@@ -13,6 +13,7 @@ class MakeInput extends StatelessWidget {
         decoration: InputDecoration(
           //contentPadding: EdgeInsets.symmetric(horizontal: 20),
           suffixIcon: Icon(Icons.cancel),
+
           hintText: label,
           contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           enabledBorder: OutlineInputBorder(
