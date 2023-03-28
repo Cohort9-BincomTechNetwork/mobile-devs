@@ -1,3 +1,4 @@
+import 'package:examina/features/auth/controller/auth_controller.dart';
 import 'package:examina/features/splash/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,17 +19,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.poppinsTextTheme(),
-      ),
-      home: const SplashScreen(),
-      initialRoute: RouteHelper.getSplashScreen(),
-      getPages: RouteHelper.routes,
-    );
+    return GetBuilder<AuthController>(builder: (_) {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          textTheme: GoogleFonts.poppinsTextTheme(),
+        ),
+        home: const SplashScreen(),
+        initialRoute: RouteHelper.getSplashScreen(),
+        getPages: RouteHelper.routes,
+      );
+    });
 
     //#056CB4
   }
