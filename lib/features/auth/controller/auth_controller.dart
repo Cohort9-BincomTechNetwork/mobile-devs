@@ -7,7 +7,12 @@ class AuthController extends GetxController {
   AuthRepository authRePository;
   AuthController({required this.authRePository});
 
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
   Future<ResponseModel> signUp(body) async {
+    _isLoading = true;
+    update();
     ResponseModel responseModel;
     try {
       Response response = await authRePository.signUp(body);
@@ -21,6 +26,8 @@ class AuthController extends GetxController {
     } catch (e) {
       responseModel = ResponseModel(message: e.toString(), isSuccess: false);
     }
+    _isLoading = false;
+    update();
     return responseModel;
   }
 }
