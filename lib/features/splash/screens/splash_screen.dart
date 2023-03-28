@@ -38,6 +38,11 @@ class SplashScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                SplashButton(
+                  textColor: AppColors.whiteColor,
+                  color: AppColors.primaryColor,
+                  text: 'Skip',
+                ),
                 GestureDetector(
                   onTap: () => Get.toNamed(RouteHelper.getSplashScreen2()),
                   child: SplashButton(
@@ -45,11 +50,6 @@ class SplashScreen extends StatelessWidget {
                     color: AppColors.splashButtonColor,
                     text: 'Next',
                   ),
-                ),
-                SplashButton(
-                  textColor: AppColors.whiteColor,
-                  color: AppColors.primaryColor,
-                  text: 'Skip',
                 ),
               ],
             ),

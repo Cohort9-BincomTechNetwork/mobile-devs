@@ -1,4 +1,8 @@
 import 'package:examina/common/utils/colors.dart';
+import 'package:examina/common/utils/dimensions.dart';
+import 'package:examina/features/auth/widgets/make_input_widget.dart';
+import 'package:examina/features/auth/widgets/social_btn.dart';
+import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
 import 'package:examina/routes/route.dart';
 
 import 'package:flutter/material.dart';
@@ -30,32 +34,15 @@ class LoginPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Column(
               children: [
                 Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Container(
-                        padding: const EdgeInsets.only(top: 3, left: 3),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 60,
-                          onPressed: () {},
-                          color: AppColors.primaryColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          child: const Text(
-                            "Log In with Facebook",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
+                    SocialBtn(
+                      image: 'assets/images/google.png',
+                      text: "Login with Google",
                     ),
 
                     // ElevatedButton.icon(
@@ -72,32 +59,39 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Container(
-                        padding: const EdgeInsets.only(top: 3, left: 3),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 60,
-                          onPressed: () {},
-                          color: AppColors.primaryColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          child: const Text(
-                            "Log In with Facebook",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                                color: Colors.white),
-                          ),
-                        ),
-                      ),
+                    SocialBtn(
+                        image: "assets/images/facebook.png",
+                        text: "Login with Facebook"),
+
+                    // const SizedBox(
+                    //   height: 40,
+                    //   width: 150.0,
+                    //   child: Divider(
+                    //     color: Colors.blue,
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: Dimension.height20,
                     ),
-                    const SizedBox(
-                      height: 40,
-                      width: 150.0,
-                      child: Divider(
-                        color: Colors.blue,
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: Dimension.width20 * 2,
+                          vertical: Dimension.height20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: Dimension.width20 * 5 + 30,
+                            height: 2,
+                            color: AppColors.primaryColor,
+                          ),
+                          Text('Or'),
+                          Container(
+                            width: Dimension.width20 * 5 + 30,
+                            height: 2,
+                            color: AppColors.primaryColor,
+                          ),
+                        ],
                       ),
                     )
                   ],
@@ -114,6 +108,15 @@ class LoginPage extends StatelessWidget {
                           obsureText: true),
                     ],
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text('Forgot Password?'),
+                      ]),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -136,13 +139,16 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: Dimension.height20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Don't have an account?"),
+                    SizedBox(
+                      width: 5,
+                    ),
                     GestureDetector(
                       onTap: () => Get.toNamed(RouteHelper.register),
                       child: Text(
@@ -166,23 +172,24 @@ Widget makeInput({label, text_icon, obsureText = false}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        label,
-        style: const TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black87),
-      ),
-      const SizedBox(
-        height: 5,
-      ),
+      // Text(
+      //   label,
+      //   style: const TextStyle(
+      //       fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black87),
+      // ),
+      // const SizedBox(
+      //   height: 5,
+      // ),
       TextField(
         obscureText: obsureText,
         decoration: InputDecoration(
+          label: Text(label),
           prefixIcon: Icon(text_icon),
           contentPadding:
               const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: const OutlineInputBorder(
+          enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.blue,
+              color: AppColors.primaryColor,
             ),
           ),
           border: const OutlineInputBorder(
@@ -190,8 +197,8 @@ Widget makeInput({label, text_icon, obsureText = false}) {
               ),
         ),
       ),
-      const SizedBox(
-        height: 30,
+      SizedBox(
+        height: Dimension.height30,
       )
     ],
   );
