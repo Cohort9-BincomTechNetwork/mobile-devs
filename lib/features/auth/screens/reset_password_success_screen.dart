@@ -3,6 +3,7 @@ import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/book_store_image.dart';
 import 'package:examina/features/auth/widgets/make_input_widget.dart';
 import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
+import 'package:examina/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,7 +55,9 @@ class ResetPasswordSuccessScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Login Now"),
+                  GestureDetector(
+                      onTap: () => Get.toNamed(RouteHelper.login),
+                      child: Text("Login Now")),
                   SizedBox(
                     width: 10,
                   ),

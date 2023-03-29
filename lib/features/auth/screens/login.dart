@@ -7,6 +7,7 @@ import 'package:examina/routes/route.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -20,15 +21,15 @@ class LoginPage extends StatelessWidget {
         elevation: 0,
         // brightness: Brightness.light,
         backgroundColor: Colors.white,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Colors.black,
-            )),
+        // leading: IconButton(
+        //     onPressed: () {
+        //       Navigator.pop(context);
+        //     },
+        //     icon: const Icon(
+        //       Icons.arrow_back_ios,
+        //       size: 20,
+        //       color: Colors.black,
+        //     )),
       ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
@@ -102,6 +103,9 @@ class LoginPage extends StatelessWidget {
                     children: [
                       makeInput(
                           label: "Email", text_icon: Icons.person_2_outlined),
+                      SizedBox(
+                        height: Dimension.height30,
+                      ),
                       makeInput(
                           label: "Password",
                           text_icon: Icons.lock,
@@ -115,8 +119,19 @@ class LoginPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text('Forgot Password?'),
+                        GestureDetector(
+                          onTap: () => Get.toNamed(
+                              RouteHelper.getForgotPasswordScreen()),
+                          child: Text(
+                            'Forgot Password?',
+                            style: GoogleFonts.poppins(
+                                color: AppColors.primaryColor),
+                          ),
+                        ),
                       ]),
+                ),
+                SizedBox(
+                  height: Dimension.height30,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -183,8 +198,14 @@ Widget makeInput({label, text_icon, obsureText = false}) {
       TextField(
         obscureText: obsureText,
         decoration: InputDecoration(
-          label: Text(label),
-          prefixIcon: Icon(text_icon),
+          label: Text(
+            label,
+            style: GoogleFonts.poppins(color: AppColors.primaryColor),
+          ),
+          prefixIcon: Icon(
+            text_icon,
+            color: AppColors.primaryColor,
+          ),
           contentPadding:
               const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           enabledBorder: OutlineInputBorder(
@@ -197,9 +218,6 @@ Widget makeInput({label, text_icon, obsureText = false}) {
               ),
         ),
       ),
-      SizedBox(
-        height: Dimension.height30,
-      )
     ],
   );
 }
