@@ -1,6 +1,7 @@
 import 'package:examina/common/utils/colors.dart';
 import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/features/auth/widgets/make_input_widget.dart';
+import 'package:examina/features/auth/widgets/make_text_input.dart';
 import 'package:examina/features/auth/widgets/social_btn.dart';
 import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
 import 'package:examina/routes/route.dart';
@@ -101,15 +102,17 @@ class LoginPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
-                      makeInput(
-                          label: "Email", text_icon: Icons.person_2_outlined),
+                      MakeTextInput(
+                          icon: Icons.person_2_outlined,
+                          label: "Email",
+                          obscureText: false),
                       SizedBox(
                         height: Dimension.height30,
                       ),
-                      makeInput(
+                      MakeTextInput(
+                          icon: Icons.lock,
                           label: "Password",
-                          text_icon: Icons.lock,
-                          obsureText: true),
+                          obscureText: true),
                     ],
                   ),
                 ),
@@ -181,43 +184,4 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget makeInput({label, text_icon, obsureText = false}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      // Text(
-      //   label,
-      //   style: const TextStyle(
-      //       fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black87),
-      // ),
-      // const SizedBox(
-      //   height: 5,
-      // ),
-      TextField(
-        obscureText: obsureText,
-        decoration: InputDecoration(
-          label: Text(
-            label,
-            style: GoogleFonts.poppins(color: AppColors.primaryColor),
-          ),
-          prefixIcon: Icon(
-            text_icon,
-            color: AppColors.primaryColor,
-          ),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColors.primaryColor,
-            ),
-          ),
-          border: const OutlineInputBorder(
-              // borderSide: BorderSide(color: Colors.grey[400])
-              ),
-        ),
-      ),
-    ],
-  );
 }
