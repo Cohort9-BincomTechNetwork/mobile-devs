@@ -8,10 +8,14 @@ class MakeTextInput extends StatelessWidget {
       {super.key,
       required this.icon,
       required this.label,
-      required this.obscureText});
+      required this.obscureText,
+      required this.textEditingController,
+      this.inputType = TextInputType.text});
   bool obscureText;
   String label;
   IconData icon;
+  TextEditingController textEditingController;
+  TextInputType inputType;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,9 @@ class MakeTextInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextField(
+          controller: textEditingController,
           obscureText: obscureText,
+          keyboardType: inputType,
           decoration: InputDecoration(
             hintText: label,
             hintStyle: GoogleFonts.poppins(color: AppColors.primaryColor),

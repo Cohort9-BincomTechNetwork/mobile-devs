@@ -45,12 +45,12 @@ class RouteHelper {
     GetPage(
         name: login,
         page: () {
-          return const LoginPage();
+          return LoginPage();
         }),
     GetPage(
         name: register,
         page: () {
-          return const SignUpPage();
+          return SignUpPage();
         }),
     GetPage(
         name: forgotPasswordScreen,
