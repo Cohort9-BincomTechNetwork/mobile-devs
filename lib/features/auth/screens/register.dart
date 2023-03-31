@@ -12,12 +12,14 @@ import 'package:get/get.dart';
 import '../widgets/error_dialog.dart';
 
 class SignUpPage extends StatelessWidget {
-  SignUpPage({super.key});
+  SignUpPage({super.key, required this.role});
+  String role;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    print(role);
     void Signup(AuthController authController) async {
       var email = emailController.text;
       var password = passwordController.text;
@@ -40,10 +42,12 @@ class SignUpPage extends StatelessWidget {
             email: email,
             password: password,
             confirmPassword: confirmPassword,
-            role: "Tutor");
+            role: role);
         var response = await authController.signUp(signUpModel.toMap());
         if (response.isSuccess) {
           print(response.message);
+          Get.toNamed(RouteHelper.getHomeScreen());
+          return;
         } else {
           error(context, response.message);
           return;
@@ -120,6 +124,7 @@ class SignUpPage extends StatelessWidget {
                                   height: Dimension.height30,
                                 ),
                                 MakeTextInput(
+                                    textInputAction: TextInputAction.send,
                                     textEditingController:
                                         passwordConfirmController,
                                     icon: Icons.lock,
