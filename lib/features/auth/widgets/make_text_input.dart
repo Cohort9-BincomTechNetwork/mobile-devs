@@ -10,12 +10,14 @@ class MakeTextInput extends StatelessWidget {
       required this.label,
       required this.obscureText,
       required this.textEditingController,
-      this.inputType = TextInputType.text});
+      this.inputType = TextInputType.text,
+      this.textInputAction = TextInputAction.next});
   bool obscureText;
   String label;
   IconData icon;
   TextEditingController textEditingController;
   TextInputType inputType;
+  TextInputAction textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class MakeTextInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextField(
+          textInputAction: TextInputAction.next,
           controller: textEditingController,
           obscureText: obscureText,
           keyboardType: inputType,

@@ -47,7 +47,7 @@ class AuthController extends GetxController {
             message: response.body['resultMessage'], isSuccess: false);
       }
     } catch (e) {
-      responseModel = ResponseModel(message: e.toString(), isSuccess: false);
+      responseModel = ResponseModel(message: 'failed', isSuccess: false);
     }
     _isLoading = false;
     update();
