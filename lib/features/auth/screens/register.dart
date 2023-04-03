@@ -19,7 +19,7 @@ class SignUpPage extends StatelessWidget {
   TextEditingController passwordConfirmController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    print(role);
+    // print(role);
     void Signup(AuthController authController) async {
       var email = emailController.text;
       var password = passwordController.text;
@@ -45,7 +45,7 @@ class SignUpPage extends StatelessWidget {
             role: role);
         var response = await authController.signUp(signUpModel.toMap());
         if (response.isSuccess) {
-          print(response.message);
+          // print(response.message);
           Get.toNamed(RouteHelper.getHomeScreen());
           return;
         } else {

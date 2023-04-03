@@ -57,6 +57,7 @@ class NewPasswordScreen extends StatelessWidget {
                 onTap: () =>
                     Get.toNamed(RouteHelper.getPasswordResetSuccessScreen()),
                 child: TextBTN(
+                  width: 8,
                   text: "Reset Password",
                 ),
               ),
