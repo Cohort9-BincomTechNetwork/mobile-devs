@@ -2,7 +2,7 @@ import 'package:examina/common/utils/colors.dart';
 import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/custom_progress_indicator.dart';
 import 'package:examina/features/auth/controller/auth_controller.dart';
-import 'package:examina/features/auth/widgets/make_text_input.dart';
+import 'package:examina/common/widgets/make_text_input.dart';
 import 'package:examina/models/signup_model.dart';
 import 'package:examina/routes/route.dart';
 import 'package:flutter/material.dart';
