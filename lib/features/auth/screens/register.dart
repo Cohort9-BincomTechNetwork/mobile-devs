@@ -12,8 +12,8 @@ import 'package:get/get.dart';
 import '../widgets/error_dialog.dart';
 
 class SignUpPage extends StatelessWidget {
-  SignUpPage({super.key, required this.role});
-  String role;
+  SignUpPage({super.key});
+  // String role;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController passwordConfirmController = TextEditingController();
@@ -21,6 +21,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // print(role);
     void Signup(AuthController authController) async {
+      // return;
       var email = emailController.text;
       var password = passwordController.text;
       var confirmPassword = passwordConfirmController.text;
@@ -39,14 +40,23 @@ class SignUpPage extends StatelessWidget {
         return;
       } else {
         SignUpModel signUpModel = SignUpModel(
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword,
-            role: role);
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword,
+        );
+
         var response = await authController.signUp(signUpModel.toMap());
         if (response.isSuccess) {
           // print(response.message);
-          Get.toNamed(RouteHelper.getHomeScreen());
+          Get.snackbar(
+            'Success',
+            'A code has been sent to your email',
+            backgroundColor: AppColors.primaryColor,
+            colorText: Colors.white,
+            duration: Duration(seconds: 60),
+          );
+          // Get.toNamed(RouteHelper.getEmailVerificationScreen());
+          // Get.toNamed(RouteHelper.getHomeScreen());
           return;
         } else {
           error(context, response.message);

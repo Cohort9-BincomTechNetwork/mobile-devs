@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/text_button.dart';
+import '../../widgets/text_button.dart';
 
 class ResetPasswordSuccessScreen extends StatelessWidget {
   const ResetPasswordSuccessScreen({super.key});

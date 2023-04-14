@@ -18,8 +18,8 @@ class AuthController extends GetxController {
       Response response = await authRePository.signUp(body);
       print(response.body['success']);
       if (response.statusCode == 201 && response.body['success'] == true) {
-        responseModel =
-            ResponseModel(message: 'Successfully Registered', isSuccess: true);
+        responseModel = ResponseModel(
+            message: response.body['resultMessage'], isSuccess: true);
       } else {
         responseModel = ResponseModel(
             message: response.body['resultMessage'], isSuccess: false);

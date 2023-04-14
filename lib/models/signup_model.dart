@@ -4,12 +4,12 @@ class SignUpModel {
   String email;
   String password;
   String confirmPassword;
-  String role;
+  //String role;
   SignUpModel({
     required this.email,
     required this.password,
     required this.confirmPassword,
-    required this.role,
+    //required this.role,
   });
 
   Map<String, dynamic> toMap() {
@@ -17,7 +17,7 @@ class SignUpModel {
       'email': email,
       'password': password,
       'confirmPassword': confirmPassword,
-      'role': role,
+      // 'role': role,
     };
   }
 
@@ -26,7 +26,7 @@ class SignUpModel {
       email: map['email'] ?? '',
       password: map['password'] ?? '',
       confirmPassword: map['confirmPassword'] ?? '',
-      role: map['role'] ?? '',
+      // role: map['role'] ?? '',
     );
   }
 
