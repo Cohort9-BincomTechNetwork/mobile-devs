@@ -5,6 +5,7 @@ import 'package:examina/features/auth/widgets/text_button.dart';
 import 'package:examina/features/tutor/widgets/input_box.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 class TutorProfileUpdateScreen extends StatelessWidget {
   TutorProfileUpdateScreen({super.key});
@@ -14,11 +15,28 @@ class TutorProfileUpdateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new),
+          onPressed: () => Get.back(),
+        ),
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Profile Update',
+          style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: AppColors.primaryColor),
+        ),
+      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          height: 600,
+          // height: 600,
           width: double.infinity,
           padding: EdgeInsets.all(10),
           child: Column(
@@ -27,16 +45,6 @@ class TutorProfileUpdateScreen extends StatelessWidget {
               Container(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: Dimension.height45,
-                    ),
-                    Text(
-                      'Profile Update',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primaryColor),
-                    ),
                     SizedBox(
                       height: Dimension.height45,
                     ),
@@ -72,6 +80,9 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(
+                height: Dimension.height20,
+              ),
               Column(
                 children: [
                   Text(
@@ -82,7 +93,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: Dimension.height10,
+                    height: Dimension.height20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -99,6 +110,9 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                     ],
                   ),
                 ],
+              ),
+              SizedBox(
+                height: Dimension.height20 * 3,
               ),
               TextBTN(text: 'Update'),
             ],

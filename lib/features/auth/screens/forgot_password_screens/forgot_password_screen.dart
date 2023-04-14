@@ -8,10 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/text_button.dart';
-
-class NewPasswordScreen extends StatelessWidget {
-  const NewPasswordScreen({super.key});
+class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,30 +35,35 @@ class NewPasswordScreen extends StatelessWidget {
                 height: Dimension.height20,
               ),
               Text(
-                "Reset your password",
+                "Forgot Password?",
                 style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor),
               ),
+
+              Text(
+                "Don't worry, it happens to the best of us",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(),
+              ),
               SizedBox(
-                height: Dimension.height20,
+                height: Dimension.height20 * 3,
               ),
               Container(
-                  // padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(20),
                   child: MakeInput(label: "example@gmail.com")),
               SizedBox(
-                height: Dimension.height100,
+                height: Dimension.height20 * 3,
               ),
               // BUTTON
+
               GestureDetector(
-                onTap: () =>
-                    Get.toNamed(RouteHelper.getPasswordResetSuccessScreen()),
-                child: TextBTN(
-                  width: 8,
-                  text: "Reset Password",
-                ),
-              ),
+                  onTap: () =>
+                      Get.toNamed(RouteHelper.getEmailConfirmationScreen()),
+                  child: TextAndIconBTN(
+                    text: "Continue",
+                  )),
             ],
           ),
         ),

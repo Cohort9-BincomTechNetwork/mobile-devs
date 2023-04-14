@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/text_button.dart';
+import '../../widgets/text_button.dart';
 
-class CheckEmailScreen extends StatelessWidget {
-  const CheckEmailScreen({super.key});
+class NewPasswordScreen extends StatelessWidget {
+  const NewPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +37,11 @@ class CheckEmailScreen extends StatelessWidget {
                 height: Dimension.height20,
               ),
               Text(
-                "Check Your Email",
+                "Reset your password",
                 style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor),
-              ),
-
-              Text(
-                "We just sent an OTP to your registered email address",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(),
               ),
               SizedBox(
                 height: Dimension.height20,
@@ -55,29 +49,16 @@ class CheckEmailScreen extends StatelessWidget {
               Container(
                   // padding: EdgeInsets.all(10),
                   child: MakeInput(label: "example@gmail.com")),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Didn't get a code?"),
-                  TextButton(
-                      onPressed: null,
-                      child: Text(
-                        "Resend",
-                        style: GoogleFonts.poppins(
-                            color: AppColors.primaryColor,
-                            fontWeight: FontWeight.bold),
-                      ))
-                ],
-              ),
               SizedBox(
-                height: Dimension.height20 * 3,
+                height: Dimension.height100,
               ),
               // BUTTON
               GestureDetector(
-                onTap: () => Get.toNamed(RouteHelper.getNewPasswordScreen()),
+                onTap: () =>
+                    Get.toNamed(RouteHelper.getPasswordResetSuccessScreen()),
                 child: TextBTN(
-                  text: "Very OTP",
+                  width: 8,
+                  text: "Reset Password",
                 ),
               ),
             ],

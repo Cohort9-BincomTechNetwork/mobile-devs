@@ -209,7 +209,7 @@ class LoginPage extends StatelessWidget {
                                 ),
                                 GestureDetector(
                                   onTap: () => Get.toNamed(
-                                      RouteHelper.getSelectRoleScreen()),
+                                      RouteHelper.getRegisterScreen()),
                                   child: Text(
                                     "Sign Up",
                                     style: TextStyle(
