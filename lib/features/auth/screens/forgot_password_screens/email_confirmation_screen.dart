@@ -75,8 +75,29 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
     _controller.forward();
   }
 
+  String code = '';
+  TextEditingController code1 = TextEditingController();
+  TextEditingController code2 = TextEditingController();
+  TextEditingController code3 = TextEditingController();
+  TextEditingController code4 = TextEditingController();
+  TextEditingController code5 = TextEditingController();
+  TextEditingController code6 = TextEditingController();
+
+  verifyCode() {
+    code = code1.text +
+        code2.text +
+        code3.text +
+        code4.text +
+        code5.text +
+        code6.text;
+    print(code);
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (levelClock == 0) {
+      Get.snackbar('Failed', 'Time elapsed');
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
@@ -122,31 +143,33 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  EmailVerificationTextInput(),
+                  EmailVerificationTextInput(
+                    controller: code1,
+                  ),
                   SizedBox(
                     width: Dimension.width15,
                   ),
-                  EmailVerificationTextInput(),
+                  EmailVerificationTextInput(controller: code1),
                   SizedBox(
                     width: Dimension.width15,
                   ),
-                  EmailVerificationTextInput(),
+                  EmailVerificationTextInput(controller: code2),
                   SizedBox(
                     width: Dimension.width15,
                   ),
-                  EmailVerificationTextInput(),
+                  EmailVerificationTextInput(controller: code3),
                   SizedBox(
                     width: Dimension.width15,
                   ),
-                  EmailVerificationTextInput(),
+                  EmailVerificationTextInput(controller: code4),
                   SizedBox(
                     width: Dimension.width15,
                   ),
-                  EmailVerificationTextInput(),
+                  EmailVerificationTextInput(controller: code5),
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: Dimension.height10,
               ),
               Countdown(
                 animation: StepTween(
@@ -159,6 +182,7 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
               //   style: GoogleFonts.poppins(
               //       color: AppColors.primaryColor, fontSize: 20),
               // ),
+              // _controller.isCompleted? Get.snackbar('Failed', 'Time elapsed'):SizedBox.shrink()
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +228,7 @@ class Countdown extends AnimatedWidget {
         '${clockTimer.inMinutes.remainder(60).toString()}:${clockTimer.inSeconds.remainder(60).toString().padLeft(2, '0')}';
 
     // print('animation.value  ${animation.value} ');
-    // print('inMinutes ${clockTimer.inMinutes.toString()}');
+    print('inMinutes ${clockTimer.inMinutes.toString()}');
     // print('inSeconds ${clockTimer.inSeconds.toString()}');
     // print(
     //     'inSeconds.remainder ${clockTimer.inSeconds.remainder(60).toString()}');

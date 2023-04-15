@@ -29,7 +29,7 @@ class SignUpPage extends StatelessWidget {
       if (email.isEmpty || email == '') {
         error(context, 'Email cannot be empty');
         return;
-      } else if (!email.isEmail) {
+      } else if (!email.contains('@')) {
         error(context, 'Email must be rightly formed');
         return;
       } else if (password.isEmpty || password == '') {
@@ -53,13 +53,21 @@ class SignUpPage extends StatelessWidget {
             'A code has been sent to your email',
             backgroundColor: AppColors.primaryColor,
             colorText: Colors.white,
-            duration: Duration(seconds: 60),
+            duration: Duration(seconds: 20),
           );
+
           // Get.toNamed(RouteHelper.getEmailVerificationScreen());
-          // Get.toNamed(RouteHelper.getHomeScreen());
+          Get.toNamed(RouteHelper.getSelectRoleScreen());
           return;
         } else {
-          error(context, response.message);
+          // error(context, response.message + ' please login');
+          Get.snackbar(
+            'Error',
+            response.message + ' please login',
+            backgroundColor: AppColors.primaryColor,
+            colorText: Colors.white,
+            duration: Duration(seconds: 3),
+          );
           return;
         }
       }
@@ -69,20 +77,20 @@ class SignUpPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       // resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        // brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Colors.black,
-            )),
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   // brightness: Brightness.light,
+      //   backgroundColor: Colors.white,
+      //   leading: IconButton(
+      //       onPressed: () {
+      //         Navigator.pop(context);
+      //       },
+      //       icon: const Icon(
+      //         Icons.arrow_back_ios,
+      //         size: 20,
+      //         color: Colors.black,
+      //       )),
+      // ),
       body: SafeArea(
           child: GetBuilder<AuthController>(
         builder: (authConroller) => authConroller.isLoading
@@ -92,8 +100,21 @@ class SignUpPage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height,
                   width: double.infinity,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back_ios,
+                            size: 20,
+                            color: Colors.black,
+                          )),
+                      SizedBox(
+                        height: Dimension.height20 / 4,
+                      ),
                       Column(
                         children: [
                           Column(
@@ -145,14 +166,14 @@ class SignUpPage extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                right: 40,
-                                left: 40,
+                                right: Dimension.width20 * 2,
+                                left: Dimension.width20 * 2,
                                 top: Dimension.height20 * 2),
                             child: Container(
                               padding: const EdgeInsets.only(top: 3, left: 3),
                               child: MaterialButton(
                                 minWidth: double.infinity,
-                                height: Dimension.height30 * 2,
+                                height: Dimension.height100 / 2,
                                 onPressed: () {
                                   Signup(authConroller);
                                 },

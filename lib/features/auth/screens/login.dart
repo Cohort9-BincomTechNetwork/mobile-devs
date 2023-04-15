@@ -42,6 +42,21 @@ class LoginPage extends StatelessWidget {
         var response = await authController.signIn(body);
         if (response.isSuccess) {
           print(response.message);
+          if (response.message == "User has no role") {
+            Get.toNamed(RouteHelper.getSelectRoleScreen());
+            return;
+          }
+          if (response.message == "User has not verified account") {
+            Get.snackbar(
+              'Success',
+              'A code has been sent to your email',
+              backgroundColor: AppColors.primaryColor,
+              colorText: Colors.white,
+              duration: Duration(seconds: 5),
+            );
+            Get.toNamed(RouteHelper.getEmailVerificationScreen(email));
+            return;
+          }
           Get.toNamed(RouteHelper.getHomeScreen());
         } else {
           error(context, response.message);
