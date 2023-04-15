@@ -3,4 +3,6 @@ class AppConstants {
   static const SIGN_UP = '/api/User/signup';
   static const LOGIN = '/api/User/login';
   static const RESET_PASSWORD = '';
+
+  static const VERIFY_CODE = '/api/User/verifyCode';
 }

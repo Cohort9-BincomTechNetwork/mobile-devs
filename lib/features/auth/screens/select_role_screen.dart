@@ -54,9 +54,10 @@ class SelectRoleScreen extends StatelessWidget {
               height: Dimension.height30,
             ),
             GestureDetector(
-              onTap: () => Get.toNamed(RouteHelper.getRegisterScreen()),
+              onTap: () =>
+                  Get.toNamed(RouteHelper.getTutorProfileUpdateScreen()),
               child: TextBTN(
-                text: 'student',
+                text: 'Candidate',
                 width: 12,
               ),
             ),
