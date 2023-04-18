@@ -17,6 +17,11 @@ class ApiClient extends GetConnect implements GetxService {
     return response;
   }
 
+  Future<Response> putData(url, body) async {
+    Response response = await put(url, body, headers: _mainHeaders);
+    return response;
+  }
+
   Future<Response> getData(url) async {
     Response response = await get(url, headers: _mainHeaders);
     return response;

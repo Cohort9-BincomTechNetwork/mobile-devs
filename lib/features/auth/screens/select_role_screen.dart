@@ -16,13 +16,13 @@ class SelectRoleScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.black,
-          ),
-        ),
+        // leading: IconButton(
+        //   onPressed: () => Get.back(),
+        //   icon: Icon(
+        //     Icons.arrow_back_ios_new,
+        //     color: Colors.black,
+        //   ),
+        // ),
       ),
       body: Container(
         padding: EdgeInsets.all(Dimension.height20 / 2),

@@ -6,8 +6,7 @@ class AuthRepository {
   ApiClient apiClient;
   AuthRepository({required this.apiClient});
   Future<Response> verifyCode(body) async {
-    Response response =
-        await apiClient.postData(AppConstants.VERIFY_CODE, body);
+    Response response = await apiClient.putData(AppConstants.VERIFY_CODE, body);
     return response;
   }
 

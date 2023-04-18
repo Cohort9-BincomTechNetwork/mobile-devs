@@ -17,12 +17,11 @@ class AuthController extends GetxController {
 
     try {
       Response response = await authRePository.verifyCode(body);
-      if (response.statusCode == 200 && response.body['success'] == true) {
-        responseModel = ResponseModel(
-            message: response.body['resultMessage'], isSuccess: true);
+      if (response.statusCode == 200) {
+        responseModel = ResponseModel(message: 'Successful', isSuccess: true);
       } else {
-        responseModel = ResponseModel(
-            message: response.body['resultMessage'], isSuccess: false);
+        responseModel = ResponseModel(message: 'failed', isSuccess: false);
+        print(response.statusCode.toString());
       }
     } catch (e) {
       print(e.toString());
