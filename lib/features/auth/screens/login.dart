@@ -23,11 +23,10 @@ class LoginPage extends StatelessWidget {
     void SignIn(AuthController authController) async {
       var email = emailController.text;
       var password = passwordController.text;
-
       if (email.isEmpty || email == '') {
         error(context, 'Email cannot be empty');
         return;
-      } else if (!email.isEmail) {
+      } else if (!email.contains('@')) {
         error(context, 'Email must be rightly formed');
         return;
       } else if (password.isEmpty || password == '') {

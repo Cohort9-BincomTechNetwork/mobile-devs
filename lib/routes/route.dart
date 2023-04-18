@@ -53,7 +53,7 @@ class RouteHelper {
 
   static String getEmailVerificationScreen(email) =>
       '$emailVerificationScreen/?email=$email';
-
+// /?email=$email'
 // FORGOT PASSWORD SCREEN METHODS
 
   static String getForgotPasswordScreen() => '$forgotPasswordScreen';
@@ -107,7 +107,9 @@ class RouteHelper {
         name: emailVerificationScreen,
         page: () {
           var email = Get.parameters['email'];
-          return EmailVerificationScreen(email: email!);
+          return EmailVerificationScreen(
+            email: email!,
+          );
         },
         transition: Transition.rightToLeft),
     GetPage(
