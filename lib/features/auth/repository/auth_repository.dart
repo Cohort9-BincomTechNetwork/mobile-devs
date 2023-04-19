@@ -5,6 +5,11 @@ import 'package:get/get.dart';
 class AuthRepository {
   ApiClient apiClient;
   AuthRepository({required this.apiClient});
+
+  Future<Response> resendCode(body) async {
+    return await apiClient.postData(AppConstants.RESEND_CODE, body);
+  }
+
   Future<Response> verifyCode(body) async {
     Response response = await apiClient.putData(AppConstants.VERIFY_CODE, body);
     return response;

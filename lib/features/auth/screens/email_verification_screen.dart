@@ -94,6 +94,23 @@ class EmailVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    resendCode(AuthController authController) async {
+      ResponseModel responseModel = await authController.resendCode(email);
+      if (responseModel.isSuccess) {
+        Get.snackbar(
+          'Success',
+          'A new code has been sent to your email',
+          backgroundColor: AppColors.primaryColor,
+          colorText: Colors.white,
+          duration: Duration(seconds: 3),
+        );
+        return;
+      } else {
+        error(context, responseModel.message);
+        return;
+      }
+    }
+
     verifyCode(AuthController authController) async {
       // Get.toNamed(RouteHelper.getSelectRoleScreen());
       // return;
@@ -240,7 +257,9 @@ class EmailVerificationScreen extends StatelessWidget {
                           children: [
                             Text("Didn't get a code?"),
                             TextButton(
-                                onPressed: null,
+                                onPressed: () {
+                                  resendCode(authController);
+                                },
                                 child: Text(
                                   "Resend",
                                   style: GoogleFonts.poppins(

@@ -5,4 +5,5 @@ class AppConstants {
   static const RESET_PASSWORD = '';
 
   static const VERIFY_CODE = '/api/User/verifyCode';
+  static const RESEND_CODE = '/api/User/resendCode';
 }
