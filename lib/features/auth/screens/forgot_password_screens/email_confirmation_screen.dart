@@ -13,67 +13,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/text_button.dart';
 
-class EmailConfirmationScreen extends StatefulWidget {
-  const EmailConfirmationScreen({super.key});
-
-  @override
-  State<EmailConfirmationScreen> createState() =>
-      _EmailConfirmationScreenState();
-}
-
-class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
-    with TickerProviderStateMixin {
-  Timer? countdownTimer;
-  Duration myDuration = Duration(days: 5);
-  void startTimer() {
-    countdownTimer =
-        Timer.periodic(Duration(seconds: 1), (_) => setCountDown());
-  }
-
-  void stopTimer() {
-    setState(() => countdownTimer!.cancel());
-  }
-
-  // Step 5
-  void resetTimer() {
-    stopTimer();
-    setState(() => myDuration = Duration(days: 5));
-  }
-
-  void setCountDown() {
-    final reduceSecondsBy = 1;
-    setState(() {
-      final seconds = myDuration.inSeconds - reduceSecondsBy;
-      if (seconds < 0) {
-        countdownTimer!.cancel();
-      } else {
-        myDuration = Duration(seconds: seconds);
-      }
-    });
-  }
-
-  late AnimationController _controller;
-  int levelClock = 60;
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-        vsync: this,
-        duration: Duration(
-            seconds:
-                levelClock) // gameData.levelClock is a user entered number elsewhere in the applciation
-        );
-
-    _controller.forward();
-  }
+class EmailConfirmationScreen extends StatelessWidget {
+  EmailConfirmationScreen({super.key});
 
   String code = '';
   TextEditingController code1 = TextEditingController();
@@ -83,21 +24,8 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
   TextEditingController code5 = TextEditingController();
   TextEditingController code6 = TextEditingController();
 
-  verifyCode() {
-    code = code1.text +
-        code2.text +
-        code3.text +
-        code4.text +
-        code5.text +
-        code6.text;
-    print(code);
-  }
-
   @override
   Widget build(BuildContext context) {
-    if (levelClock == 0) {
-      Get.snackbar('Failed', 'Time elapsed');
-    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
@@ -171,12 +99,12 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
               SizedBox(
                 height: Dimension.height10,
               ),
-              Countdown(
-                animation: StepTween(
-                  begin: levelClock, // THIS IS A USER ENTERED NUMBER
-                  end: 0,
-                ).animate(_controller),
-              ),
+              // Countdown(
+              //   animation: StepTween(
+              //     begin: levelClock, // THIS IS A USER ENTERED NUMBER
+              //     end: 0,
+              //   ).animate(_controller),
+              // ),
               // Text(
               //   '0.59',
               //   style: GoogleFonts.poppins(
@@ -211,33 +139,6 @@ class _EmailConfirmationScreenState extends State<EmailConfirmationScreen>
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Countdown extends AnimatedWidget {
-  Countdown({required this.animation}) : super(listenable: animation);
-  Animation<int> animation;
-
-  @override
-  build(BuildContext context) {
-    Duration clockTimer = Duration(seconds: animation.value);
-
-    String timerText =
-        '${clockTimer.inMinutes.remainder(60).toString()}:${clockTimer.inSeconds.remainder(60).toString().padLeft(2, '0')}';
-
-    // print('animation.value  ${animation.value} ');
-    print('inMinutes ${clockTimer.inMinutes.toString()}');
-    // print('inSeconds ${clockTimer.inSeconds.toString()}');
-    // print(
-    //     'inSeconds.remainder ${clockTimer.inSeconds.remainder(60).toString()}');
-
-    return Text(
-      "$timerText",
-      style: TextStyle(
-        fontSize: 20,
-        color: Theme.of(context).primaryColor,
       ),
     );
   }
