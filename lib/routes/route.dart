@@ -143,7 +143,7 @@ class RouteHelper {
     GetPage(
         name: emailConfirmationScreen,
         page: () {
-          return const EmailConfirmationScreen();
+          return EmailConfirmationScreen();
         },
         transition: Transition.rightToLeft),
 

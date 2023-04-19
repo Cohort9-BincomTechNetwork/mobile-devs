@@ -10,6 +10,26 @@ class AuthController extends GetxController {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
+  Future<ResponseModel> resendCode(body) async {
+    ResponseModel responseModel;
+    _isLoading = true;
+    update();
+    try {
+      Response response = await authRePository.resendCode(body);
+      if (response.statusCode == 200) {
+        responseModel = ResponseModel(message: 'sent', isSuccess: true);
+      } else {
+        responseModel = ResponseModel(
+            message: response.statusText.toString(), isSuccess: false);
+      }
+    } catch (e) {
+      responseModel = ResponseModel(message: e.toString(), isSuccess: false);
+    }
+    _isLoading = false;
+    update();
+    return responseModel;
+  }
+
   Future<ResponseModel> verifyCode(body) async {
     _isLoading = true;
     update();
