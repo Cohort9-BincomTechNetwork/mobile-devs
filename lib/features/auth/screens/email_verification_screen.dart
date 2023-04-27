@@ -112,8 +112,8 @@ class EmailVerificationScreen extends StatelessWidget {
     }
 
     verifyCode(AuthController authController) async {
-      // Get.toNamed(RouteHelper.getSelectRoleScreen());
-      // return;
+      Get.toNamed(RouteHelper.getSelectRoleScreen());
+      return;
       code = code1.text +
           code2.text +
           code3.text +

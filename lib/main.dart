@@ -28,9 +28,8 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
         home: const SplashScreen(),
-        initialRoute:
-            // RouteHelper.getTutorProfileUpdateScreen(),
-            RouteHelper.getSplashScreen(),
+        initialRoute: RouteHelper.getTutorProfileUpdateScreen(),
+        // RouteHelper.getSplashScreen(),
         getPages: RouteHelper.routes,
       );
     });

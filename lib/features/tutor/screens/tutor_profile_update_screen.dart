@@ -3,6 +3,7 @@ import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/make_text_input.dart';
 import 'package:examina/features/auth/widgets/text_button.dart';
 import 'package:examina/features/tutor/widgets/input_box.dart';
+import 'package:examina/routes/route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
@@ -14,13 +15,15 @@ class TutorProfileUpdateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
-          onPressed: () => Get.back(),
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back_ios_new),
+        //   onPressed: () => Get.back(),
+        // ),
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -28,7 +31,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
         title: Text(
           'Profile Update',
           style: GoogleFonts.poppins(
-              fontSize: 20,
+              fontSize: 23,
               fontWeight: FontWeight.bold,
               color: AppColors.primaryColor),
         ),
@@ -54,7 +57,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                         obscureText: false,
                         textEditingController: nameController),
                     SizedBox(
-                      height: Dimension.height30,
+                      height: height * 0.05,
                     ),
                     MakeTextInput(
                         icon: Icons.phone,
@@ -62,7 +65,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                         obscureText: false,
                         textEditingController: nameController),
                     SizedBox(
-                      height: Dimension.height30,
+                      height: height * 0.05,
                     ),
                     MakeTextInput(
                         icon: Icons.date_range,
@@ -70,7 +73,15 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                         obscureText: false,
                         textEditingController: nameController),
                     SizedBox(
-                      height: Dimension.height30,
+                      height: height * 0.05,
+                    ),
+                    MakeTextInput(
+                        icon: Icons.note,
+                        label: 'Subject Taken',
+                        obscureText: false,
+                        textEditingController: nameController),
+                    SizedBox(
+                      height: height * 0.05,
                     ),
                     MakeTextInput(
                         icon: Icons.edit_location,
@@ -81,40 +92,46 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.01,
               ),
-              Column(
-                children: [
-                  Text(
-                    'Documents to upload',
-                    style: GoogleFonts.poppins(
-                      color: AppColors.primaryColor,
-                      fontSize: 16,
-                    ),
-                  ),
-                  SizedBox(
-                    height: Dimension.height20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InputBox(
-                        text: "Profile Photo",
-                      ),
-                      InputBox(
-                        text: "ID",
-                      ),
-                      InputBox(
-                        text: "Certificate",
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              //  Column(
+              //   children: [
+              // Text(
+              //   'Documents to upload',
+              //   style: GoogleFonts.poppins(
+              //     color: AppColors.primaryColor,
+              //     fontSize: 16,
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: Dimension.height20,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     InputBox(
+              //       text: "Profile Photo",
+              //     ),
+              //     InputBox(
+              //       text: "ID",
+              //     ),
+              //     InputBox(
+              //       text: "Certificate",
+              //     ),
+              //   ],
+              // ),
+              //     ],
+              //  ),
               SizedBox(
-                height: Dimension.height20 * 3,
+                height: height * 0.1,
               ),
-              TextBTN(text: 'Update'),
+              GestureDetector(
+                onTap: () => Get.toNamed(RouteHelper.getUploadDocumentScreen()),
+                child: TextBTN(
+                  text: 'Update',
+                  width: 20,
+                ),
+              ),
             ],
           ),
         ),

@@ -10,6 +10,7 @@ import 'package:examina/features/home/screens/home.dart';
 import 'package:examina/features/splash/screens/splash_screen.dart';
 import 'package:examina/features/splash/screens/splash_screen2.dart';
 import 'package:examina/features/tutor/screens/tutor_profile_update_screen.dart';
+import 'package:examina/features/tutor/screens/upload_document_screen.dart';
 import 'package:get/get.dart';
 
 import '../features/auth/screens/select_role_screen.dart';
@@ -38,6 +39,7 @@ class RouteHelper {
 
 // TUTOR SCREEN NAMES
   static const tutorProfileUpdateScreen = '/tutor-profile-update-screen';
+  static const uploadDocumentScreen = '/upload-document-screen';
 
   // --------  METHODS ---------------//
 
@@ -65,7 +67,7 @@ class RouteHelper {
 // TUTOR SCREENS METHODS
 
   static String getTutorProfileUpdateScreen() => '$tutorProfileUpdateScreen';
-
+  static String getUploadDocumentScreen() => '$uploadDocumentScreen';
   static List<GetPage> routes = [
     // SPLASH SCREEN PAGES
 
@@ -153,6 +155,12 @@ class RouteHelper {
         name: tutorProfileUpdateScreen,
         page: () {
           return TutorProfileUpdateScreen();
+        },
+        transition: Transition.fadeIn),
+    GetPage(
+        name: uploadDocumentScreen,
+        page: () {
+          return UploadDocucmentScreen();
         },
         transition: Transition.fadeIn),
   ];

@@ -9,12 +9,13 @@ class SocialBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.08),
       child: Container(
         padding: const EdgeInsets.only(top: 3, left: 3),
         child: MaterialButton(
           minWidth: double.infinity,
-          height: 60,
+          height: MediaQuery.of(context).size.width * 0.15,
           onPressed: () {},
           color: AppColors.primaryColor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
@@ -28,7 +29,7 @@ class SocialBtn extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                     fontSize: 16,
                     color: Colors.white),
               ),

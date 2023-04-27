@@ -21,38 +21,37 @@ class MakeTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextField(
-          textInputAction: TextInputAction.next,
-          controller: textEditingController,
-          obscureText: obscureText,
-          keyboardType: inputType,
-          decoration: InputDecoration(
-            hintText: label,
-            hintStyle: GoogleFonts.poppins(color: AppColors.primaryColor),
-            // label: Text(
-            //   label,
-            //   style: GoogleFonts.poppins(color: AppColors.primaryColor),
-            // ),
-            prefixIcon: Icon(
-              icon,
-              color: AppColors.primaryColor,
-            ),
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.primaryColor,
-              ),
-            ),
-            border: const OutlineInputBorder(
-                // borderSide: BorderSide(color: Colors.grey[400])
-                ),
+    return TextField(
+      textInputAction: TextInputAction.next,
+      controller: textEditingController,
+      obscureText: obscureText,
+      keyboardType: inputType,
+      decoration: InputDecoration(
+        // contentPadding: EdgeInsets.all(20),
+        hintText: label,
+        hintStyle: GoogleFonts.poppins(color: AppColors.primaryColor),
+        // label: Text(
+        //   label,
+        //   style: GoogleFonts.poppins(color: AppColors.primaryColor),
+        // ),
+        prefixIcon: Icon(
+          icon,
+          color: AppColors.primaryColor,
+        ),
+        contentPadding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height * 0.02,
+            horizontal: 10),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            width: 2,
+            color: AppColors.primaryColor,
           ),
         ),
-      ],
+        border: OutlineInputBorder(
+            // borderSide: BorderSide(color: AppColors.primaryColor, width: 10)
+            // borderSide: BorderSide(color: Colors.grey[400])
+            ),
+      ),
     );
   }
 }
