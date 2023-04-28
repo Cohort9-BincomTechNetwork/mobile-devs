@@ -104,8 +104,9 @@ class LoginPage extends StatelessWidget {
                                 //     backgroundColor: Colors.blue,
                                 //   ),
                                 // ),
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.width * 0.08,
                                 ),
                                 SocialBtn(
                                     image: "assets/images/facebook.png",
@@ -119,12 +120,17 @@ class LoginPage extends StatelessWidget {
                                 //   ),
                                 // ),
                                 SizedBox(
-                                  height: Dimension.height20,
+                                  height:
+                                      MediaQuery.of(context).size.width * 0.08,
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                      horizontal: Dimension.width20 * 2,
-                                      vertical: Dimension.height20),
+                                      horizontal:
+                                          MediaQuery.of(context).size.width *
+                                              0.09,
+                                      vertical:
+                                          MediaQuery.of(context).size.width *
+                                              0.08),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -146,8 +152,9 @@ class LoginPage extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 40),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.09),
                               child: Column(
                                 children: [
                                   MakeTextInput(
@@ -167,8 +174,9 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 40),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.08),
                               child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -185,16 +193,17 @@ class LoginPage extends StatelessWidget {
                                   ]),
                             ),
                             SizedBox(
-                              height: Dimension.height30,
+                              height: MediaQuery.of(context).size.width * 0.1,
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 40),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width * 0.08),
                               child: Container(
                                 padding: const EdgeInsets.only(top: 3, left: 3),
                                 child: MaterialButton(
                                   minWidth: double.infinity,
-                                  height: 60,
+                                  height: Dimension.height30 * 2,
                                   onPressed: () {
                                     SignIn(authController);
                                   },
@@ -212,7 +221,7 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height: Dimension.height20,
+                              height: MediaQuery.of(context).size.width * 0.05,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
