@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:examina/common/utils/colors.dart';
+import 'package:examina/common/utils/constants.dart';
 import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/book_store_image.dart';
 import 'package:examina/common/widgets/custom_progress_indicator.dart';
@@ -112,8 +113,8 @@ class EmailVerificationScreen extends StatelessWidget {
     }
 
     verifyCode(AuthController authController) async {
-      Get.toNamed(RouteHelper.getSelectRoleScreen());
-      return;
+      // Get.toNamed(RouteHelper.getSelectRoleScreen());
+      // return;
       code = code1.text +
           code2.text +
           code3.text +

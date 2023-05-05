@@ -10,10 +10,15 @@ class InputBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return Container(
-      height: 50,
+      height: height * 0.07,
       width: Dimension.width20 * width,
-      child: Center(child: Text(text)),
+      child: Center(
+          child: Text(
+        text,
+        textAlign: TextAlign.center,
+      )),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
