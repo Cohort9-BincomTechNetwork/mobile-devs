@@ -56,8 +56,8 @@ class SignUpPage extends StatelessWidget {
             duration: Duration(seconds: 20),
           );
 
-          // Get.toNamed(RouteHelper.getEmailVerificationScreen());
-          Get.toNamed(RouteHelper.getSelectRoleScreen());
+          Get.toNamed(RouteHelper.getEmailVerificationScreen(email));
+          // Get.toNamed(RouteHelper.getSelectRoleScreen());
           return;
         } else {
           // error(context, response.message + ' please login');

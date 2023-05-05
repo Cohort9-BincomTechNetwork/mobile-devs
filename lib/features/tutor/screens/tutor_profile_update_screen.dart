@@ -92,7 +92,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.09,
               ),
               //  Column(
               //   children: [
@@ -122,9 +122,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
               // ),
               //     ],
               //  ),
-              SizedBox(
-                height: height * 0.1,
-              ),
+
               GestureDetector(
                 onTap: () => Get.toNamed(RouteHelper.getUploadDocumentScreen()),
                 child: TextBTN(

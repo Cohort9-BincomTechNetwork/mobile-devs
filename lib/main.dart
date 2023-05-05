@@ -28,12 +28,13 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
         home: const SplashScreen(),
-        initialRoute: RouteHelper.getTutorProfileUpdateScreen(),
-        // RouteHelper.getSplashScreen(),
+        initialRoute:
+            //RouteHelper.getTutorProfileUpdateScreen(),
+            RouteHelper.getSplashScreen(),
         getPages: RouteHelper.routes,
       );
     });
-
+    // testTEST123//
     //#056CB4
     // test@test.com
     // TESTtest123//

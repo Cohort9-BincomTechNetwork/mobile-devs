@@ -22,6 +22,16 @@ class UploadDocucmentScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
+        actions: [
+          Icon(
+            Icons.menu,
+            color: AppColors.primaryColor,
+            size: height * 0.06,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+        ],
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
           onPressed: () => Get.back(),
@@ -58,10 +68,11 @@ class UploadDocucmentScreen extends StatelessWidget {
               height: height,
             ),
             SizedBox(
-              height: height * 0.4,
+              height: height * 0.39,
             ),
             GestureDetector(
-              onTap: () => Get.toNamed(RouteHelper.getUploadDocumentScreen()),
+              onTap: () =>
+                  Get.toNamed(RouteHelper.getTutorPublicProfileScreen()),
               child: TextBTN(
                 text: 'Update',
                 width: 20,

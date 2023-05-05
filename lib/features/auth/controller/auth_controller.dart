@@ -1,3 +1,4 @@
+import 'package:examina/common/utils/constants.dart';
 import 'package:get/get.dart';
 
 import '../../../models/response_models.dart';
@@ -37,14 +38,21 @@ class AuthController extends GetxController {
 
     try {
       Response response = await authRePository.verifyCode(body);
-      if (response.statusCode == 200) {
-        responseModel = ResponseModel(message: 'Successful', isSuccess: true);
+      if (response.statusCode == 200 &&
+          response.body['resultMessage'] == "Code verification successful") {
+        responseModel = ResponseModel(
+            message: "Code verification successful", isSuccess: true);
+        // save token
+
+        await authRePository.saveToken(response.body["jwtToken"]);
+        await authRePository.updateToken();
       } else {
-        responseModel = ResponseModel(message: 'failed', isSuccess: false);
-        print(response.statusCode.toString());
+        // print(response.body['resultMessage'].toString());
+        responseModel = ResponseModel(message: 'ddd', isSuccess: false);
+        print(response.statusCode);
       }
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       responseModel = ResponseModel(message: e.toString(), isSuccess: false);
     }
     _isLoading = false;
@@ -62,6 +70,7 @@ class AuthController extends GetxController {
       if (response.statusCode == 201 && response.body['success'] == true) {
         responseModel = ResponseModel(
             message: response.body['resultMessage'], isSuccess: true);
+        await authRePository.saveToken(response.body["jwtToken"]);
       } else {
         responseModel = ResponseModel(
             message: response.body['resultMessage'], isSuccess: false);
@@ -80,10 +89,13 @@ class AuthController extends GetxController {
     ResponseModel responseModel;
     try {
       Response response = await authRePository.signIn(body);
-      print(response.body);
+
       if (response.statusCode == 200 && response.body['success'] == true) {
         responseModel = ResponseModel(
             message: response.body['resultMessage'], isSuccess: true);
+
+        await authRePository.saveToken(response.body["jwtToken"]);
+        await authRePository.updateToken();
       } else {
         responseModel = ResponseModel(
             message: response.body['resultMessage'], isSuccess: false);
