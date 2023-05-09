@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
         if (response.isSuccess) {
           print(response.message);
           if (response.message == "User has no role") {
-            Get.toNamed(RouteHelper.getSelectRoleScreen());
+            Get.toNamed(RouteHelper.getSelectRoleScreen(email));
             return;
           }
           if (response.message == "User has not verified account") {

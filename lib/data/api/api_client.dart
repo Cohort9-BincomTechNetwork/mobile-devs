@@ -17,6 +17,7 @@ class ApiClient extends GetConnect implements GetxService {
       'Authorization': 'Bearer $token',
     };
   }
+
   Future<void> updateToken() async {
     token = await getUserToken();
     updateMainHeader(token);

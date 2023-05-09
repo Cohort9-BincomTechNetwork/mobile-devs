@@ -19,7 +19,7 @@ import '../features/auth/screens/select_role_screen.dart';
 class RouteHelper {
   // ONBOARDING SCREEN NAMES
 
-  static const initial = '/';
+  // static const initial = '/';
   static const splashScreen = '/splash-screen';
   static const splashScreen2 = '/splash-screen-2';
   static const home = '/home';
@@ -51,7 +51,7 @@ class RouteHelper {
 
 // AUTHENTICATION SCREEN METHODS
 
-  static String getSelectRoleScreen() => '$selectRoleScreen';
+  static String getSelectRoleScreen(email) => '$selectRoleScreen/?email=$email';
   static String getRegisterScreen() => '$register';
 
   static String getEmailVerificationScreen(email) =>
@@ -120,7 +120,10 @@ class RouteHelper {
     GetPage(
         name: selectRoleScreen,
         page: () {
-          return const SelectRoleScreen();
+          var email = Get.parameters['email'];
+          return SelectRoleScreen(
+            email: email!,
+          );
         },
         transition: Transition.rightToLeft),
 

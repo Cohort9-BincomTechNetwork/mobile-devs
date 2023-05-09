@@ -8,6 +8,10 @@ class AuthRepository {
   final SharedPreferences sharedPreferences;
   AuthRepository({required this.apiClient, required this.sharedPreferences});
 
+  Future<Response> selectRole(body) async {
+    return apiClient.putData(AppConstants.SELECT_ROLE, body);
+  }
+
   updateToken() async {
     return await apiClient.updateToken();
   }
