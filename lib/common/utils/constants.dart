@@ -8,5 +8,7 @@ class AppConstants {
   static const VERIFY_CODE = '/api/User/verifyCode';
   static const RESEND_CODE = '/api/User/resendCode';
 
+  static const SELECT_ROLE = '/api/User/selectRole';
+
   static const TOKEN = '';
 }

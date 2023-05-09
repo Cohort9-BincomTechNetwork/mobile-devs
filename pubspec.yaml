@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   google_fonts: ^4.0.3
-  flutter_native_splash: ^2.2.19
+  # flutter_native_splash: ^2.2.19
   shared_preferences: ^2.1.0
 
 dev_dependencies:
@@ -44,12 +44,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   
-
-flutter_native_splash:
-  android: true
-  ios: true
-  # web: false
-  background_image: assets/images/sp.png
+# flutter_native_splash:
+#   background_image: assets/images/sp.png
   
   # color: "#056CB4"
 
@@ -62,7 +58,7 @@ flutter_native_splash:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  build_runner: ^2.3.3
+ 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

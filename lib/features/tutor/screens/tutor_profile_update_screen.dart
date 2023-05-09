@@ -12,7 +12,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
   TutorProfileUpdateScreen({super.key});
 
   TextEditingController nameController = TextEditingController();
-
+  String tutor = 'Tutor';
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;

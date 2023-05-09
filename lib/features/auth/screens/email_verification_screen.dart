@@ -140,7 +140,7 @@ class EmailVerificationScreen extends StatelessWidget {
         ResponseModel responseModel = await authController.verifyCode(body);
 
         if (responseModel.isSuccess) {
-          Get.toNamed(RouteHelper.getSelectRoleScreen());
+          Get.toNamed(RouteHelper.getSelectRoleScreen(email));
           return;
         } else {
           error(context, responseModel.message);
@@ -158,10 +158,6 @@ class EmailVerificationScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           backgroundColor: AppColors.whiteColor,
           elevation: 0,
-          // leading: IconButton(
-          //     color: Colors.black,
-          //     onPressed: () => Get.back(),
-          //     icon: Icon(Icons.arrow_back_ios_new)),
         ),
         body: GetBuilder<AuthController>(builder: (authController) {
           return authController.isLoading
