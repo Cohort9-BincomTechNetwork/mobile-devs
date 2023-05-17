@@ -1,10 +1,13 @@
-import 'package:examina/features/auth/controller/auth_controller.dart';
-import 'package:examina/features/splash/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'helper/dependencies.dart' as dep;
+import 'package:examina/features/auth/controller/auth_controller.dart';
+import 'package:examina/features/auth/screens/login.dart';
+import 'package:examina/features/splash/screens/splash_screen.dart';
+import 'package:examina/features/tutor/screens/tutor_profile_update_screen.dart';
+
 import 'package:examina/routes/route.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'helper/dependencies.dart' as dep;
 
 void main() async {
   GoogleFonts.config.allowRuntimeFetching = false;
@@ -25,15 +28,16 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          textTheme: GoogleFonts.poppinsTextTheme(),
+          // textTheme: GoogleFonts.poppinsTextTheme(),
         ),
         home: const SplashScreen(),
-        initialRoute:
-            //RouteHelper.getTutorProfileUpdateScreen(),
-            RouteHelper.getSplashScreen(),
+        //LoginPage(),
+        // TutorProfileUpdateScreen(),
+        initialRoute: RouteHelper.getSplashScreen(),
         getPages: RouteHelper.routes,
       );
     });
+
     // testTEST123//
     //#056CB4
     // test@test.com

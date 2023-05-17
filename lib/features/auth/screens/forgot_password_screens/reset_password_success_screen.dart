@@ -15,6 +15,8 @@ class ResetPasswordSuccessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
@@ -27,14 +29,14 @@ class ResetPasswordSuccessScreen extends StatelessWidget {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: height,
           padding: EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               BookStoreImage(),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.05,
               ),
               Text(
                 "Reset Successful",
@@ -49,7 +51,7 @@ class ResetPasswordSuccessScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(),
               ),
               SizedBox(
-                height: Dimension.height20 * 10,
+                height: height * 0.2,
               ),
               // BUTTON
               Row(

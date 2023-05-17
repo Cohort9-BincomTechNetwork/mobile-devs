@@ -19,6 +19,8 @@ class SignUpPage extends StatelessWidget {
   TextEditingController passwordConfirmController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     // print(role);
     void Signup(AuthController authController) async {
       // return;
@@ -53,7 +55,7 @@ class SignUpPage extends StatelessWidget {
             'A code has been sent to your email',
             backgroundColor: AppColors.primaryColor,
             colorText: Colors.white,
-            duration: Duration(seconds: 20),
+            duration: Duration(seconds: 3),
           );
 
           Get.toNamed(RouteHelper.getEmailVerificationScreen(email));
@@ -63,7 +65,7 @@ class SignUpPage extends StatelessWidget {
           // error(context, response.message + ' please login');
           Get.snackbar(
             'Error',
-            response.message + ' please login',
+            response.message.toString() + ' please login',
             backgroundColor: AppColors.primaryColor,
             colorText: Colors.white,
             duration: Duration(seconds: 3),
@@ -113,7 +115,7 @@ class SignUpPage extends StatelessWidget {
                             color: Colors.black,
                           )),
                       SizedBox(
-                        height: Dimension.height20 / 4,
+                        height: height * 0.01,
                       ),
                       Column(
                         children: [
@@ -128,9 +130,7 @@ class SignUpPage extends StatelessWidget {
                                   color: AppColors.primaryColor,
                                 ),
                               ),
-                              SizedBox(
-                                height: Dimension.height30,
-                              )
+                              SizedBox(height: height * 0.09)
                             ],
                           ),
                           Padding(
@@ -144,7 +144,7 @@ class SignUpPage extends StatelessWidget {
                                     label: 'exanmple@e.com',
                                     obscureText: false),
                                 SizedBox(
-                                  height: Dimension.height30,
+                                  height: height * 0.05,
                                 ),
                                 MakeTextInput(
                                     textEditingController: passwordController,
@@ -152,7 +152,7 @@ class SignUpPage extends StatelessWidget {
                                     label: '***********',
                                     obscureText: false),
                                 SizedBox(
-                                  height: Dimension.height30,
+                                  height: height * 0.05,
                                 ),
                                 MakeTextInput(
                                     textInputAction: TextInputAction.send,
@@ -166,14 +166,14 @@ class SignUpPage extends StatelessWidget {
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                right: Dimension.width20 * 2,
-                                left: Dimension.width20 * 2,
-                                top: Dimension.height20 * 2),
+                                right: width * 0.1,
+                                left: width * 0.1,
+                                top: height * 0.09),
                             child: Container(
                               padding: const EdgeInsets.only(top: 3, left: 3),
                               child: MaterialButton(
                                 minWidth: double.infinity,
-                                height: Dimension.height100 / 2,
+                                height: height * 0.08,
                                 onPressed: () {
                                   Signup(authConroller);
                                 },

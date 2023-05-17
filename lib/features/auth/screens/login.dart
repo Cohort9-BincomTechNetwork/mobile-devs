@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:examina/common/utils/colors.dart';
 import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/custom_progress_indicator.dart';
@@ -7,7 +8,6 @@ import 'package:examina/features/auth/widgets/social_btn.dart';
 import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
 import 'package:examina/routes/route.dart';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,6 +20,8 @@ class LoginPage extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     void SignIn(AuthController authController) async {
       var email = emailController.text;
       var password = passwordController.text;
@@ -136,13 +138,13 @@ class LoginPage extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
-                                        width: Dimension.width20 * 5 + 30,
+                                        width: width * 0.3,
                                         height: 2,
                                         color: AppColors.primaryColor,
                                       ),
                                       Text('Or'),
                                       Container(
-                                        width: Dimension.width20 * 5 + 30,
+                                        width: width * 0.3,
                                         height: 2,
                                         color: AppColors.primaryColor,
                                       ),
@@ -153,8 +155,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.09),
+                                  horizontal: width * 0.09),
                               child: Column(
                                 children: [
                                   MakeTextInput(
@@ -163,7 +164,7 @@ class LoginPage extends StatelessWidget {
                                       label: "Email",
                                       obscureText: false),
                                   SizedBox(
-                                    height: Dimension.height30,
+                                    height: height * 0.05,
                                   ),
                                   MakeTextInput(
                                       textEditingController: passwordController,
@@ -175,8 +176,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.08),
+                                  horizontal: width * 0.08),
                               child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -193,17 +193,16 @@ class LoginPage extends StatelessWidget {
                                   ]),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width * 0.1,
+                              height: height * 0.09,
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width * 0.08),
+                                  horizontal: width * 0.08),
                               child: Container(
                                 padding: const EdgeInsets.only(top: 3, left: 3),
                                 child: MaterialButton(
                                   minWidth: double.infinity,
-                                  height: Dimension.height30 * 2,
+                                  height: height * 0.09,
                                   onPressed: () {
                                     SignIn(authController);
                                   },

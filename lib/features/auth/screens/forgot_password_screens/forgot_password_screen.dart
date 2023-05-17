@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:examina/common/utils/colors.dart';
 import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/book_store_image.dart';
 import 'package:examina/features/auth/widgets/make_input_widget.dart';
 import 'package:examina/features/auth/widgets/text_and_icon_btn.dart';
 import 'package:examina/routes/route.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,6 +14,8 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
@@ -32,7 +35,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             children: [
               BookStoreImage(),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.03,
               ),
               Text(
                 "Forgot Password?",
@@ -48,13 +51,13 @@ class ForgotPasswordScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(),
               ),
               SizedBox(
-                height: Dimension.height20 * 3,
+                height: height * 0.05,
               ),
               Container(
                   padding: EdgeInsets.all(20),
                   child: MakeInput(label: "example@gmail.com")),
               SizedBox(
-                height: Dimension.height20 * 3,
+                height: height * 0.05,
               ),
               // BUTTON
 

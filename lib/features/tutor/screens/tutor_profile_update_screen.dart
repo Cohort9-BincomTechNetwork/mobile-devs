@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:examina/common/utils/colors.dart';
 import 'package:examina/common/utils/dimensions.dart';
 import 'package:examina/common/widgets/make_text_input.dart';
 import 'package:examina/features/auth/widgets/text_button.dart';
 import 'package:examina/features/tutor/widgets/input_box.dart';
 import 'package:examina/routes/route.dart';
-import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 
@@ -49,7 +50,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: Dimension.height45,
+                      height: height * 0.03,
                     ),
                     MakeTextInput(
                         icon: Icons.person,
@@ -92,7 +93,7 @@ class TutorProfileUpdateScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: height * 0.09,
+                height: height * 0.1 + 10,
               ),
               //  Column(
               //   children: [

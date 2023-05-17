@@ -19,7 +19,7 @@ import '../features/auth/screens/select_role_screen.dart';
 class RouteHelper {
   // ONBOARDING SCREEN NAMES
 
-  // static const initial = '/';
+  static const initial = '/';
   static const splashScreen = '/splash-screen';
   static const splashScreen2 = '/splash-screen-2';
   static const home = '/home';
@@ -88,7 +88,7 @@ class RouteHelper {
         transition: Transition.downToUp),
 
     GetPage(
-        name: home,
+        name: initial,
         page: () {
           return const HomeScreen();
         },

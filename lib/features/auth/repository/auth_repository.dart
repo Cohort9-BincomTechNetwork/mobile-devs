@@ -35,8 +35,8 @@ class AuthRepository {
     return response;
   }
 
-  Future<Response> signUp(body) async {
-    Response response = await apiClient.postData(AppConstants.SIGN_UP, body);
+  signUp(body) async {
+    var response = await apiClient.postData(AppConstants.SIGN_UP, body);
     return response;
   }
 

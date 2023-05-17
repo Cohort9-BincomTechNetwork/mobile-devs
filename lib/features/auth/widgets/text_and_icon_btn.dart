@@ -9,9 +9,11 @@ class TextAndIconBTN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Container(
-      height: Dimension.height10 * 6,
-      width: Dimension.width30 * 5,
+      height: height * 0.08,
+      width: width * 0.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: AppColors.primaryColor,

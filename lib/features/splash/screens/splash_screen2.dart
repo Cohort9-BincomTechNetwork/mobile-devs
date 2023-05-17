@@ -12,9 +12,11 @@ class SplashScreen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: height,
         padding: const EdgeInsets.all(15),
         width: double.infinity,
         color: AppColors.whiteColor,
@@ -27,11 +29,11 @@ class SplashScreen2 extends StatelessWidget {
             //       Get.toNamed(RouteHelper.getSplashScreen());
             //     },
             //     icon: Icon(Icons.arrow_back_ios_new_outlined)),
-            SizedBox(height: Dimension.height20 * 5),
+            SizedBox(height: height * 0.1),
             // image
             BookStoreImage(),
             SizedBox(
-              height: Dimension.height30,
+              height: height * 0.05,
             ),
 
             //text
@@ -46,7 +48,7 @@ class SplashScreen2 extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: Dimension.height10 / 2,
+              height: height * 0.02,
             ),
             Text(
               'Learn new things and develop your problem solving skills',
@@ -69,15 +71,15 @@ class SplashScreen2 extends StatelessWidget {
                     width: 5,
                   ),
                   Container(
-                    height: Dimension.height20 / 4,
-                    width: Dimension.width30,
+                    height: height * 0.009,
+                    width: width * 0.09,
                     color: AppColors.primaryColor,
                   ),
                 ],
               ),
             ),
 
-            SizedBox(height: Dimension.height10 * 10),
+            SizedBox(height: height * 0.25),
 
             // button
             Row(
