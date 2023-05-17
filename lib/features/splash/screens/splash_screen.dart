@@ -10,19 +10,21 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(bottom: 30, left: 10, right: 10),
         color: AppColors.primaryColor,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: width,
+        height: height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // logo
             Expanded(child: Container()),
             Container(
-              height: Dimension.height100,
+              height: height * 0.15,
               //width: Dimension.width250 + 50,
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -32,7 +34,7 @@ class SplashScreen extends StatelessWidget {
             ),
 
             SizedBox(
-              height: Dimension.height100 * 2,
+              height: height * 0.4,
             ),
             // buttons
             Row(

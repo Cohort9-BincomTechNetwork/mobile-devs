@@ -95,6 +95,8 @@ class EmailVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     resendCode(AuthController authController) async {
       ResponseModel responseModel = await authController.resendCode(email);
       if (responseModel.isSuccess) {
@@ -172,7 +174,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       children: [
                         BookStoreImage(),
                         SizedBox(
-                          height: Dimension.height20,
+                          height: height * 0.04,
                         ),
                         Text(
                           "Email Confirmation",
@@ -182,7 +184,7 @@ class EmailVerificationScreen extends StatelessWidget {
                               color: AppColors.primaryColor),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: height * 0.01,
                         ),
                         Text(
                           "We just sent an OTP to your registered email address",
@@ -190,7 +192,7 @@ class EmailVerificationScreen extends StatelessWidget {
                           style: GoogleFonts.poppins(),
                         ),
                         SizedBox(
-                          height: Dimension.height20,
+                          height: height * 0.02,
                         ),
                         // Container(
                         //     // padding: EdgeInsets.all(10),
@@ -202,31 +204,31 @@ class EmailVerificationScreen extends StatelessWidget {
                               controller: code1,
                             ),
                             SizedBox(
-                              width: Dimension.width15,
+                              width: width * 0.03,
                             ),
                             EmailVerificationTextInput(
                               controller: code2,
                             ),
                             SizedBox(
-                              width: Dimension.width15,
+                              width: width * 0.03,
                             ),
                             EmailVerificationTextInput(
                               controller: code3,
                             ),
                             SizedBox(
-                              width: Dimension.width15,
+                              width: width * 0.03,
                             ),
                             EmailVerificationTextInput(
                               controller: code4,
                             ),
                             SizedBox(
-                              width: Dimension.width15,
+                              width: width * 0.03,
                             ),
                             EmailVerificationTextInput(
                               controller: code5,
                             ),
                             SizedBox(
-                              width: Dimension.width15,
+                              width: width * 0.03,
                             ),
                             EmailVerificationTextInput(
                               controller: code6,
@@ -235,7 +237,7 @@ class EmailVerificationScreen extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 10,
+                          height: height * 0.02,
                         ),
                         // Countdown(
                         //   animation: StepTween(
@@ -266,7 +268,7 @@ class EmailVerificationScreen extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: Dimension.height20 * 3,
+                          height: height * 0.1,
                         ),
                         // BUTTON
                         GestureDetector(

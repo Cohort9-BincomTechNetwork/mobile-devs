@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'package:examina/common/utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 class ApiClient extends GetConnect implements GetxService {
   String appBaseUrl;
@@ -44,6 +46,9 @@ class ApiClient extends GetConnect implements GetxService {
 
   Future<Response> postData(url, body) async {
     Response response = await post(url, body, headers: _mainHeaders);
+
+    // var response = await http.post(Uri.parse(AppConstants.BASE_URL + url),
+    //     headers: _mainHeaders, body: json.encode(body));
     return response;
   }
 

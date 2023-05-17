@@ -26,6 +26,8 @@ class EmailConfirmationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
@@ -45,7 +47,7 @@ class EmailConfirmationScreen extends StatelessWidget {
             children: [
               BookStoreImage(),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.05,
               ),
               Text(
                 "Email Confirmation",
@@ -63,7 +65,7 @@ class EmailConfirmationScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(),
               ),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.05,
               ),
               // Container(
               //     // padding: EdgeInsets.all(10),
@@ -75,29 +77,29 @@ class EmailConfirmationScreen extends StatelessWidget {
                     controller: code1,
                   ),
                   SizedBox(
-                    width: Dimension.width15,
+                    width: width * 0.02,
                   ),
                   EmailVerificationTextInput(controller: code1),
                   SizedBox(
-                    width: Dimension.width15,
+                    width: width * 0.02,
                   ),
                   EmailVerificationTextInput(controller: code2),
                   SizedBox(
-                    width: Dimension.width15,
+                    width: width * 0.02,
                   ),
                   EmailVerificationTextInput(controller: code3),
                   SizedBox(
-                    width: Dimension.width15,
+                    width: width * 0.02,
                   ),
                   EmailVerificationTextInput(controller: code4),
                   SizedBox(
-                    width: Dimension.width15,
+                    width: width * 0.02,
                   ),
                   EmailVerificationTextInput(controller: code5),
                 ],
               ),
               SizedBox(
-                height: Dimension.height10,
+                width: width * 0.02,
               ),
               // Countdown(
               //   animation: StepTween(
@@ -127,7 +129,7 @@ class EmailConfirmationScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: Dimension.height20 * 3,
+                height: height * 0.1,
               ),
               // BUTTON
               GestureDetector(

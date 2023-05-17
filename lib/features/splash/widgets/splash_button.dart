@@ -13,11 +13,9 @@ class SplashButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    print('This is height' + height.toString());
-    print('This is width' + width.toString());
     return Container(
-      width: Dimension.width20 * 5,
-      height: Dimension.width10 * 5,
+      width: width * 0.2,
+      height: height * 0.06,
       child: Center(
           child: Text(
         text,

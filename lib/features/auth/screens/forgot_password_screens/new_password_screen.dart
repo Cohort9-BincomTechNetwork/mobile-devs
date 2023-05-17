@@ -15,6 +15,8 @@ class NewPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
@@ -27,14 +29,14 @@ class NewPasswordScreen extends StatelessWidget {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: height,
           padding: EdgeInsets.all(10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               BookStoreImage(),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.05,
               ),
               Text(
                 "Reset your password",
@@ -44,13 +46,13 @@ class NewPasswordScreen extends StatelessWidget {
                     color: AppColors.primaryColor),
               ),
               SizedBox(
-                height: Dimension.height20,
+                height: height * 0.05,
               ),
               Container(
                   // padding: EdgeInsets.all(10),
                   child: MakeInput(label: "example@gmail.com")),
               SizedBox(
-                height: Dimension.height100,
+                height: height * 0.1,
               ),
               // BUTTON
               GestureDetector(

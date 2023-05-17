@@ -36,20 +36,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   google_fonts: ^4.0.3
-  # flutter_native_splash: ^2.2.19
+ 
   shared_preferences: ^2.1.0
+  http: ^0.13.6
 
 dev_dependencies:
   
   flutter_test:
     sdk: flutter
   
-# flutter_native_splash:
-#   background_image: assets/images/sp.png
-  
-  # color: "#056CB4"
 
-  # image: assets/images/Logo2.png
   
 
   # The "flutter_lints" package below contains a set of recommended lints to

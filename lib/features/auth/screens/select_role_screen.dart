@@ -34,6 +34,8 @@ class SelectRoleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -48,12 +50,12 @@ class SelectRoleScreen extends StatelessWidget {
         // ),
       ),
       body: Container(
-        padding: EdgeInsets.all(Dimension.height20 / 2),
+        padding: EdgeInsets.all(height * 0.03 / 2),
         width: double.infinity,
         child: Column(
           children: [
             SizedBox(
-              height: Dimension.height30 + 10,
+              height: height * 0.04 + 10,
             ),
             Text(
               "Register as ...",
@@ -63,7 +65,7 @@ class SelectRoleScreen extends StatelessWidget {
                   color: AppColors.primaryColor),
             ),
             SizedBox(
-              height: Dimension.height30,
+              height: height * 0.05,
             ),
             GetBuilder<AuthController>(builder: (authController) {
               return authController.isLoading
@@ -77,7 +79,7 @@ class SelectRoleScreen extends StatelessWidget {
                     );
             }),
             SizedBox(
-              height: Dimension.height30,
+              height: height * 0.05,
             ),
             GestureDetector(
               onTap: () => null,

@@ -11,9 +11,11 @@ class TextBTN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width1 = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Container(
-      height: Dimension.height10 * 6,
-      width: Dimension.width30 * width,
+      height: height * 0.09,
+      width: width1 * 0.08 * width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: AppColors.primaryColor,
